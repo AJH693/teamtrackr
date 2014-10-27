@@ -1,17 +1,47 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
+/**
+ * Home landing page
+ */
+Route::get('/', 
+[
+    'as' => 'landing',
+    'uses' => 'HomeController@landing'
+]);
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+/**
+ * List individual project
+ */
+Route::get('project/{name}',
+[
+	'as' => 'project',
+    'uses' => 'ProjectController@show'
+]);
+
+
+/**
+ * List my projects
+ */
+Route::get('projects',
+[
+	'as' => 'myProjects',
+    'uses' => 'ProjectController@myProjects'
+]);
+
+/**
+ * List all projects in the system
+ */
+Route::get('projects/all',
+[
+	'as' => 'allProjects',
+    'uses' => 'ProjectController@allProjects'
+]);
+
+/**
+ * Admin approval page
+ */
+Route::get('admin',
+[
+	'as' => 'approval',
+    'uses' => 'AdminController@approval'
+]);
