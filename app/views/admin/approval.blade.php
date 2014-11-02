@@ -84,7 +84,42 @@
                         </div>
                     </div> -->
 
-
+                    <div class="list-group-item">
+                        <div class="media col-md-3">
+                            <figure class="pull-left">
+                                <img height="250" width="350" class="media-object img-rounded img-responsive"  src="http://barringtonstageco.org/media/potato.jpg" alt="placehold.it/350x250" >
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="list-group-item-heading"> Team Potato </h4>
+                            <p class="list-group-item-text">
+                                There are 4 pending changes:
+                            </p>
+                            <ul>
+                                <li>Task 5 (<i>Module Implementation</i>) <font color="00CC66">started</font> on <b>11/1/14</b></li>
+                                <li>Task 6 (<i>Integration Testing</i>) <font color="00CC66">started</font> on <b>11/1/14</b></li>
+                                <li>Task 5 (<i>Module Implementation</i>) <font color="0099FF">completed</font> on <b>11/4/14</b></li>
+                                    <ul>
+                                    <li>Time: 4 days</li>
+                                    <li>Cost: $0.00</li>
+                                    <li>Lines of Code: 671</li>
+                                    </ul>
+                                <li>Budget <font color="FF9933">updated</font> on <b>11/6/14</b></li>
+                                    <ul>
+                                    <li>Item <i>Actual Raspberry Pie</i> added for <i>$9.95</i></li>
+                                    <li>Item <i>12pk Mountain Dew</i> added for <i>$5.50</i></li>
+                                    <li>Total cost increased <i>$15.45</i> to <i>$90.89</i></li>
+                                    </ul>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h2><small>Progress:</small> 24%</h2>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            <h2><small>Progress:</small> 32%</h2>
+                            <button type="button" class="btn btn-default btn-lg btn-block"> Accept </button>
+                            <button type="button" class="btn btn-default btn-lg btn-block"> Decline </button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
