@@ -10,6 +10,51 @@ Route::get('/',
 ]);
 
 /**
+ * Show login form
+ */
+Route::get('login',
+[
+    'as' => 'showLogin',
+    'uses' => 'HomeController@showLogin'
+]);
+
+/**
+ * Show register form
+ */
+Route::get('register',
+[
+    'as' => 'showRegister',
+    'uses' => 'HomeController@showRegister'
+]);
+
+/**
+ * Login into teamtrackr
+ */
+Route::post('login',
+[
+    'as' => 'login',
+    'uses' => 'HomeController@login'
+]);
+
+/**
+ * Register for teamtrackr
+ */
+Route::post('register',
+[
+    'as' => 'register',
+    'uses' => 'HomeController@register'
+]);
+
+/**
+ * Logout of teamtrackr
+ */
+Route::get('logout',
+[
+    'as' => 'logout',
+    'uses' => 'HomeController@logout'
+]);
+
+/**
  * List individual project
  */
 Route::get('project/{name}',

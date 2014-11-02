@@ -1,0 +1,23 @@
+button {
+	width: 100px;
+}
+input[type="submit"] {
+	width: 100%;
+}
+button, input[type="submit"] {
+	border-radius: 2px;
+	padding: 10px;
+	border: none;
+	background: #fff;
+	border: 1px solid #383838;
+	color: #383838;
+}
+button.fancy, input[type="submit"].fancy {
+	border: 1px solid #fff;
+	color: #fff;
+	background: transparent;
+}
+button:hover {
+	opacity: .8;
+	transition: opacity 1s;
+}

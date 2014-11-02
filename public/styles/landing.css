@@ -1,0 +1,22 @@
+#landingView, #splash {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#splash {
+	background: url('../img/mountain.jpg');
+	background-size: 100%;
+}
+#splash .title, #splash .description {
+	color: #fff;
+	padding-bottom: 40px;
+	text-align: center;
+}
+#landingView .center-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    flex-direction: column;
+    padding-bottom: 80px;
+}

@@ -1,0 +1,13 @@
+header {
+	height: 40px;
+	background: #383838;
+}
+
+header .title {
+	color: #fff;
+}
+
+header .nav {
+	color: #fff;
+	float: right;
+}

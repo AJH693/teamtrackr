@@ -1,0 +1,34 @@
+html, h1, h2, h3, h4, h5, h6, p, a, li {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+h1 {
+	font-size: 60px;
+} 
+h2 {} 
+h3 {} 
+h4 {} 
+h5 {
+	font-size: 16px;
+	font-weight: 300;
+} 
+h6 {
+	font-size: 18px;
+	font-weight: 700;
+}
+a {
+	color: #aae8e4;
+}
+a:visted {
+	color: #aae8e4;
+	opacity: .8;
+}
+a:hover {
+	text-decoration: none;
+	color: #aae8e4;
+	opacity: .8;
+}
+a.nostyle, a.nostyle:visited, a.nostyle:hover {
+	color: inherit;
+	opacity: 1;
+}

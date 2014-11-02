@@ -1,0 +1,8 @@
+html, body, main {
+    height: 100%;
+}
+main {
+    display: block;
+    padding: 0 !important;
+    margin: 0 !important;
+}
