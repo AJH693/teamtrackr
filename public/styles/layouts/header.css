@@ -1,5 +1,4 @@
 header {
-	height: 40px;
 	background: #383838;
 }
 
@@ -7,7 +6,14 @@ header .title {
 	color: #fff;
 }
 
-header .nav {
+header nav {
 	color: #fff;
-	float: right;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+
+header nav * {
+	display: inline-block;
+	padding-left: 6px;
 }

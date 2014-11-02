@@ -25,10 +25,11 @@
 </head>
 <body>
 	<header class="container-fluid">
+		<a href="{{ route('landing') }}" class="nostyle title text-center"><h6 class="title">teamtrackr</h6></a>
 		@if(Auth::check())
-		<a href="{{ route('logout') }}" class="nostyle nav"><h5>logout</h5></a>
-		@else
-		<a href="{{ route('landing') }}" class="nostyle"><h6 class="text-center title">teamtrackr</h6></a>
+		<nav>
+			<a href="{{ route('logout') }}" class="nostyle nav"><h5>logout</h5></a>	
+		</nav>
 		@endif
 	</header>
 
