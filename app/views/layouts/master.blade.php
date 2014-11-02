@@ -12,5 +12,7 @@
 </head>
 <body>
 	@yield('content')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script href="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </body>
 </html>
