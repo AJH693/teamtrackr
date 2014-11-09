@@ -22,15 +22,15 @@ $projects = [
 
 	@foreach($projects as $index => $project)
 
-	<div class='col-sm-4 col-md-4'>
+	<?php $extra = $index % 3 === 0 ? 'project-left' : '' ?>
+
+	<div class='col-sm-4 col-md-4 project {{ $extra }}'>
 		<div class='post'>
-			<div id="projectGuage{{ $index }}">
-			
-			</div>
+			<div id="projectGuage{{ $index }}" style="height:220px" data-numtasks="{{ $project['numtasks'] }}" data-budget="{{ $project['budget'] }}" data-taskscompleted="{{ $project['taskscompleted'] }}" data-projectname="{{ $project['projectname'] }}" data-teamname="{{ $project['teamname'] }}"></div>
 			<div class='content'>
 				<strong>Team: </strong>{{{ $project['teamname'] }}}<br>
 				<strong>Project: </strong>{{{ $project['projectname'] }}}<br>
-				<strong>Number of Tasks: </strong>{{{ $project['numtasks'] }}}
+				<strong>Number of Tasks: </strong>{{{ $project['numtasks'] }}}<br>
 				<strong> Budget: </strong>{{{ $project['budget'] }}}
 			</div>
 		</div>
@@ -57,8 +57,8 @@ $projects = [
         title: null,
 
         pane: {
-            center: ['50%', '85%'],
-            size: '100%',
+            center: ['50%', '90%'],
+            size: '160%',
             startAngle: -90,
             endAngle: 90,
             background: {
@@ -72,27 +72,26 @@ $projects = [
         tooltip: {
             enabled: false
         },
-        
+
+        // the value axis
         yAxis: {
-            min: 0,
-            max: 5,
+            stops: [
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353'] // red
+            ],
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            tickInterval: 400,
             title: {
-                text: 'RPM'
+                y: -70
+            },
+            labels: {
+                y: 16
             }
         },
-
-        series: [{
-            name: 'RPM',
-            data: [1],
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-                       '<span style="font-size:12px;color:silver">* 1000 / min</span></div>'
-            },
-            tooltip: {
-                valueSuffix: ' revolutions/min'
-            }
-        }],
 
         plotOptions: {
             solidgauge: {
@@ -106,7 +105,27 @@ $projects = [
     };
 
     for(var i = 0; i < guages.length; i++) {
-    	$(guages[i]).highcharts(gaugeOptions);
+    	var $guage = $(guages[i]);
+
+    	$guage.highcharts(Highcharts.merge(gaugeOptions, {
+    		yAxis: {
+	            min: 0,
+	            max: $guage.data('numtasks'),
+	            title: {
+	                text: ''
+	            }
+	        },
+
+	        series: [{
+	            name: 'RPM',
+	            data: [$guage.data('taskscompleted')],
+	            dataLabels: {
+	                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+	                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+	                       '<span style="font-size:12px;color:silver">Tasks</span></div>'
+	            }
+	        }],
+    	}));
     }
 
 </script>
