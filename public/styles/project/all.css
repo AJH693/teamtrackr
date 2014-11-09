@@ -2,6 +2,12 @@
 	border-right: 1px solid #eee;
 	border-bottom: 1px solid #eee;
 	padding:10px;
+	transition: opacity .5s;
+}
+.project:hover {
+	opacity: .4;
+	transition: opacity .5s;
+	cursor: pointer;
 }
 .project-left {
 	border-left: 1px solid #eee;

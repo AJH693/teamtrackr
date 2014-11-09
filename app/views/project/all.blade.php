@@ -1,14 +1,3 @@
-<?php
-
-$projects = [
-	['teamname'=>'Malware', 'projectname'=>'TeamTrackr', 'numtasks'=>'52', 'budget'=>'$0', 'taskscompleted'=>'50'], 
-	['teamname'=>'Names', 'projectname'=>'Inventory Tracker', 'numtasks'=>'45', 'budget'=>'$150', 'taskscompleted'=>'5'],
-	['teamname'=>'Mavericks', 'projectname'=>'PacMan', 'numtasks'=>'86', 'budget'=>'$200', 'taskscompleted'=>'55'],
-	['teamname'=>'Potatoe', 'projectname'=>'Pig weight estimator', 'numtasks'=>'74', 'budget'=>'$62', 'taskscompleted'=>'21']
-];
-
-?>
-
 @extends('layouts.master', [
 
 	'title' => ''
@@ -25,15 +14,17 @@ $projects = [
 	<?php $extra = $index % 3 === 0 ? 'project-left' : '' ?>
 
 	<div class='col-sm-4 col-md-4 project {{ $extra }}'>
+		<a href="{{ route('project', ['id' => $project->name]) }}" class="nostyle">
 		<div class='post'>
-			<div id="projectGuage{{ $index }}" style="height:220px" data-numtasks="{{ $project['numtasks'] }}" data-budget="{{ $project['budget'] }}" data-taskscompleted="{{ $project['taskscompleted'] }}" data-projectname="{{ $project['projectname'] }}" data-teamname="{{ $project['teamname'] }}"></div>
+			<div id="projectGuage{{ $index }}" style="height:220px" data-numtasks="{{ $project->numtasks }}" data-budget="{{ $project->budget }}" data-taskscompleted="{{ $project->taskscompleted }}" data-projectname="{{ $project->name }}" data-teamname="{{ $project->teamname }}"></div>
 			<div class='content'>
-				<strong>Team: </strong>{{{ $project['teamname'] }}}<br>
-				<strong>Project: </strong>{{{ $project['projectname'] }}}<br>
-				<strong>Number of Tasks: </strong>{{{ $project['numtasks'] }}}<br>
-				<strong> Budget: </strong>{{{ $project['budget'] }}}
+				<strong>Team: </strong>{{{ $project->teamname }}}<br>
+				<strong>Project: </strong>{{{ $project->name }}}<br>
+				<strong>Number of Tasks: </strong>{{{ $project->numtasks }}}<br>
+				<strong> Budget: </strong>${{{ $project->budget }}}
 			</div>
 		</div>
+		</a>
 	</div>
 
 	@endforeach

@@ -9,7 +9,14 @@ class ProjectController extends BaseController {
 
 	public function show($name) 
 	{
-		return View::make('project.show');
+		$project = Project::where('name', '=', $name)->first();
+		
+		if($project)
+		{
+			return View::make('project.show', $project);
+		}
+
+		return 'not found';
 	}
 
 	public function myProjects()
@@ -19,7 +26,7 @@ class ProjectController extends BaseController {
 
 	public function allProjects()
 	{
-		return View::make('project.all');
+		return View::make('project.all', ['projects' => Project::all()]);
 	}
 
 }
