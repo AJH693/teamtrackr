@@ -10,7 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 
 	<!-- Jquery -->
-	<script href="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	
 	<!--Highcharts-->
 	<script src="http://code.highcharts.com/highcharts.js"></script>
