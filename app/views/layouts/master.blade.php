@@ -11,6 +11,11 @@
 
 	<!-- Jquery -->
 	<script href="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
+	<!--Highcharts-->
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/highcharts-more.js"></script>
+	<script src="http://code.highcharts.com/modules/solid-gauge.js"></script>
 
 	{{ HTML::style('styles/reset/reset.css') }}
 	{{ HTML::style('styles/reset/typography.css') }}
