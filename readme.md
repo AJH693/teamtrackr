@@ -13,7 +13,8 @@ Setup
 -----
 
 **** <b><u>**Note**:</u></b> *****
-<br>This set up was designed for Unix/Mac OS X only. </br>
+<br>This set up was designed for Linux/Mac OS X only. </br>
+
 
 
 This team uses Git and works in individual forks, which are isolated
@@ -34,7 +35,7 @@ Requirements
 2. Add php to your path (/usr/local/bin/php) so that you can use it from terminal. This is done in your .bash_profile.
 3. Type `php` in your terminal to verify that it works.
 
-### Mysql ### 
+### Mysql 
 
 1. [Download mysql](http://dev.mysql.com/downloads/) for your machine if you do not have it already.
 2. Add mysql to your path (/path/to/mysql/bin/) so that it can be used from terminal. This is done in your .bash_profile.3. Type `mysql` in your terminal and verify that a connection is made.
