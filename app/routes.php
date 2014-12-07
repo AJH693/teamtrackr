@@ -87,6 +87,14 @@ Route::get('projects/all',
  */
 Route::get('admin',
 [
-	'as' => 'approval',
+	'as' => 'admin',
     'uses' => 'AdminController@approval'
 ]);
+
+Route::get('accepted', function () {
+    mail("cavanaughmsean@gmail.com", "Project Trackr", "Your pending changes were accepted!");
+});
+
+Route::get('declined', function () {
+    mail("cavanaughmsean@gmail.com", "Project Trackr", "Your pending changes were declined!");
+});

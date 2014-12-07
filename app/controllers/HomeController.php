@@ -34,6 +34,12 @@ class HomeController extends BaseController {
         }
 	}
 
+	public function email()
+	{
+		print "Email";
+		mail("daotoo@iastate.edu", "Test", "Test");
+	}
+
 	public function register()
 	{
 		$user = new User(Input::all());

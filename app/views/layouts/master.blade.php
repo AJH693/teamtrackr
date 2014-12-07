@@ -33,6 +33,7 @@
 		<a href="{{ route('landing') }}" class="nostyle title text-center"><h6 class="title">teamtrackr</h6></a>
 		@if(Auth::check())
 		<nav>
+			<a href="{{ route('admin') }}" class="nostyle nav"><h5>Admin Approval</h5></a>
 			<a href="{{ route('logout') }}" class="nostyle nav"><h5>logout</h5></a>	
 		</nav>
 		@endif

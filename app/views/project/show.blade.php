@@ -24,6 +24,9 @@
 			<div id="budgetChart" data-max="{{ $budget }}" data-actual="{{{ $spent }}}" class="col-md-4" style="height: 200px"></div>
 			<div id="tasksChart" data-max="{{{ $numtasks }}}" data-actual="{{{ $taskscompleted }}}" class="col-md-4" style="height: 200px"></div>
 			<div id="codeChart" data-max="20000" data-actual="12400" class="col-md-4" style="height: 200px"></div>
+            <div id="storyPoints" data-max="{{{ $storyPoints }}}" data-one="{{{ $mustPriorityPoints }}}" data-two="{{{ $shouldPriorityPoints }}}" data-three="{{{ $couldPriorityPoints }}}" class="col-md-12" style="height: 400px"></div>
+            <div id="tasksChart3" data-max="{{{ $numtasks }}}" data-actual="{{{ $taskscompleted }}}" class="col-md-4" style="height: 200px"></div>
+
 		</div>
 
 	</div>
@@ -148,6 +151,60 @@
 
     $('#tasksChart').highcharts(Highcharts.merge(guageOptions, {
     	yAxis: {
+            min: 0,
+            max: $('#tasksChart').data('max'),
+            title: {
+                text: ''
+            }
+        },
+
+        series: [{
+            name: 'RPM',
+            data: [$('#tasksChart').data('actual')],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                       '<span style="font-size:12px;color:silver">Tasks</span></div>'
+            }
+        }]
+    }));
+    $('#storyPoints').highcharts(Highcharts.merge(guageOptions, {
+       chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 1,//null,
+            plotShadow: false,
+            max: $('#storyPoints').data('max')
+        },
+        title: {
+            text: 'Story Points Implementation Breakdown '
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            data: [
+                ['Must Priority Points',  $('#storyPoints').data('one') ],
+                ['Should Priority Points', $('#storyPoints').data('two')],
+                ['Could Priority Points',    $('#storyPoints').data('three')]
+            ]
+        }]
+    }));
+    $('#tasksChart3').highcharts(Highcharts.merge(guageOptions, {
+        yAxis: {
             min: 0,
             max: $('#tasksChart').data('max'),
             title: {

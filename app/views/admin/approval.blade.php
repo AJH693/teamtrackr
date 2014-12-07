@@ -44,8 +44,8 @@
                             <h2><small>Progress:</small> 8%</h2>
                             <span class="glyphicon glyphicon-arrow-down"></span>
                             <h2><small>Progress:</small> 11%</h2>
-                            <button type="button" class="btn btn-default btn-lg btn-block"> Accept </button>
-                            <button type="button" class="btn btn-default btn-lg btn-block"> Decline </button>
+                            <button type="button" class="btn btn-default btn-lg btn-block accept"> Accept </button>
+                            <button type="button" class="btn btn-default btn-lg btn-block decline"> Decline </button>
                         </div>
                     </div>
 
@@ -116,8 +116,8 @@
                             <h2><small>Progress:</small> 24%</h2>
                             <span class="glyphicon glyphicon-arrow-down"></span>
                             <h2><small>Progress:</small> 32%</h2>
-                            <button type="button" class="btn btn-default btn-lg btn-block"> Accept </button>
-                            <button type="button" class="btn btn-default btn-lg btn-block"> Decline </button>
+                            <button type="button" class="btn btn-default btn-lg btn-block accept"> Accept </button>
+                            <button type="button" class="btn btn-default btn-lg btn-block decline"> Decline </button>
                         </div>
                     </div>
 
@@ -126,5 +126,19 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(".accept").click(function () {
+        $(this).parent().children().remove("button").parent().append("<h4 style='color: green'>Accepted!</h4>");
+        $.ajax({ url: "accepted",
+                type: "GET"
+        });
+    });
+    $(".decline").click(function () {
+        $(this).parent().children().remove("button").parent().append("<h4 style='color: red'>Declined!</h4>");
+                $.ajax({ url: "declined",
+                type: "GET"
+        });
+    });
+</script>
 
 @stop

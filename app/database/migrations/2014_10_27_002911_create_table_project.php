@@ -20,6 +20,12 @@ class CreateTableProject extends Migration {
 			$table->string('budget');
 			$table->string('spent');
 			$table->string('taskscompleted');
+			$table->string('defects');
+			$table->string('numWorkers');
+			$table->string('storyPoints');
+			$table->string('mustPriorityPoints');
+			$table->string('shouldPriorityPoints');
+			$table->string('couldPriorityPoints');
 			$table->timestamps();
 		});
 	}

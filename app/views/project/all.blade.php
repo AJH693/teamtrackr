@@ -8,6 +8,13 @@
 @section('content')
 
 <div class="container" style="padding-bottom:40px;">
+    <div id="allProjects">
+        
+
+
+
+    </div>
+
 
 	@foreach($projects as $index => $project)
 
@@ -16,8 +23,8 @@
 	<div class='col-sm-4 col-md-4 project {{ $extra }}'>
 		<a href="{{ route('project', ['id' => $project->name]) }}" class="nostyle">
 		<div class='post'>
-			<div id="projectGuage{{ $index }}" style="height:220px" data-numtasks="{{ $project->numtasks }}" data-budget="{{ $project->budget }}" data-taskscompleted="{{ $project->taskscompleted }}" data-projectname="{{ $project->name }}" data-teamname="{{ $project->teamname }}"></div>
-			<div class='content'>
+			<div id="projectGuage{{ $index }}" style="height:220px" data-defects="{{$project->defects}}" data-storypoints="{{$project->storyPoints}}" data-numworkers="{{$project->numWorkers}}"data-numtasks="{{ $project->numtasks }}" data-budget="{{ $project->budget }}" data-taskscompleted="{{ $project->taskscompleted }}" data-projectname="{{ $project->name }}" data-teamname="{{ $project->teamname }}"></div>
+            <div class='content'>
 				<strong>Team: </strong>{{{ $project->teamname }}}<br>
 				<strong>Project: </strong>{{{ $project->name }}}<br>
 				<strong>Number of Tasks: </strong>{{{ $project->numtasks }}}<br>
@@ -32,7 +39,6 @@
 </div>
 
 <script>
-
 	var guages = $('[id^=projectGuage]');
 	
 	var gaugeOptions = {
@@ -118,6 +124,58 @@
 	        }],
     	}));
     }
+
+    $('#allProjects').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'All Project Comparator'
+        },
+        xAxis: {
+            categories: ['TeamTrackr', 'Inventory Trackr', 'PacMan', 'Pig Weight Estimator'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Defects',
+            data: [$("#projectGuage0").data('defects') , $("#projectGuage1").data('defects'), $("#projectGuage2").data('defects'), $("#projectGuage3").data('defects')]
+        }, {
+            name: 'Project Story Points',
+            data: [$("#projectGuage0").data('storypoints') , $("#projectGuage1").data('storypoints'), $("#projectGuage2").data('storypoints'), $("#projectGuage3").data('storypoints')]
+        }, {
+            name: 'Number Of Workers',
+            data: [$("#projectGuage0").data('numworkers') , $("#projectGuage1").data('numworkers'), $("#projectGuage2").data('numworkers'), $("#projectGuage3").data('numworkers')]
+        }]
+    });
 
 </script>
 
