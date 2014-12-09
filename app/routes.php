@@ -92,9 +92,9 @@ Route::get('admin',
 ]);
 
 Route::get('accepted', function () {
-    mail("cavanaughmsean@gmail.com", "Project Trackr", "Your pending changes were accepted!");
+    mail("andy.guibert@gmail.com", "Project Trackr", "Your pending changes were accepted!");
 });
 
 Route::get('declined', function () {
-    mail("cavanaughmsean@gmail.com", "Project Trackr", "Your pending changes were declined!");
+    mail("andy.guibert@gmail.com", "Project Trackr", "Your pending changes were declined!");
 });
