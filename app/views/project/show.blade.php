@@ -203,25 +203,6 @@
             ]
         }]
     }));
-    $('#tasksChart3').highcharts(Highcharts.merge(guageOptions, {
-        yAxis: {
-            min: 0,
-            max: $('#tasksChart').data('max'),
-            title: {
-                text: ''
-            }
-        },
-
-        series: [{
-            name: 'RPM',
-            data: [$('#tasksChart').data('actual')],
-            dataLabels: {
-                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
-                       '<span style="font-size:12px;color:silver">Tasks</span></div>'
-            }
-        }]
-    }));
 
     $('#codeChart').highcharts(Highcharts.merge(guageOptions, {
     	yAxis: {
